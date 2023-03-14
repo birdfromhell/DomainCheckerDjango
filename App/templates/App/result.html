@@ -1,0 +1,60 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result For {{ domain }}</title>
+    {% compress css %}
+    <link type="text/x-scss" rel="stylesheet" href="{% static 'result.scss' %}">
+    {% endcompress %}
+</head>
+<body>
+<div class="card">
+  <div class="card-back">
+    <div class="line-numbers">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+    </div><code><span class="variable">const </span><span class="function">Domain </span><span class="operator">= </span><span>{</span>
+      <div class="indent"> <span class="property">name</span><span class="operator">: </span><span class="string">{{ domain }}</span><span>,</span></div>
+      <div class="indent"> <span class="property">available</span><span class="operator">: </span><span class="string">{{ available }}</span><span>,</span></div>
+      <div class="indent"> <span class="property">valid</span><span class="operator">: </span><span class="string">{{ valid }}</span><span>,</span></div>
+      <div class="indent"> <span class="property">registrar</span><span class="operator">: </span><span class="string">'{{ registrar }}'</span><span>,</span></div>
+      <div class="indent"> <span class="property">tld</span><span class="operator">: </span><span class="string">'{{ tld }}'</span><span>,</span></div>
+      <div class="indent"> <span class="property">created</span><span class="operator">: </span><span>{</span>
+        <div class="indent"> <span class="property">created_at</span><span class="operator">: </span><span class="string">'{{ created_at }}'</span><span>,</span></div>
+        <div class="indent"> <span class="property">updated_at</span><span class="operator">: </span><span class="string">'{{ updated_at }}'</span><span>,</span></div>
+        <div class="indent"><span class="property">expires_at</span><span class="operator">:</span><span class="string">'{{ expires_at }}'</span></div><span>}</span>
+      </div><span>}</span></code>
+  </div>
+  <div class="card-front">
+    <div class="line-numbers">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+        {% if con %}
+            </div><code><span class="variable">this</span><span>.</span><span class="method">Domain</span><span>(</span><span class="string">'Available'</span><span>, </span><span class="function">() => </span><span>{ </span>
+      <div class="indent"><span class="variable">this</span><span>.</span><span class="property">Domain </span><span>= </span><span class="string">'{{ domain }}'</span><span>;</span></div><span>});</span></code>
+        {% else %}
+    </div><code><span class="variable">this</span><span>.</span><span class="method">Domain</span><span>(</span><span class="string">'NotAvailable'</span><span>, </span><span class="function">() => </span><span>{ </span>
+      <div class="indent"><span class="variable">this</span><span>.</span><span class="property">Domain </span><span>= </span><span class="string">'{{ domain }}'</span><span>;</span></div><span>});</span></code>
+        {% endif %}
+  </div>
+</div>
+</body>
+</html>

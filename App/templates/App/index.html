@@ -1,0 +1,22 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domain Checker</title>
+    {% compress css %}
+    <link type="text/x-scss" rel="stylesheet" href="{% static 'main.scss' %}">
+    {% endcompress %}
+</head>
+<body>
+<h1>Domain Checker</h1>
+<form class="search"  method="post">
+    {% csrf_token %}
+    <label>
+        <input name="domain" type="text" placeholder="Search here..." required>
+    </label>
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>

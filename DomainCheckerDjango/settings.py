@@ -116,11 +116,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_FINDERS = ('django.contrib.staticfiles.finders.FileSystemFinder',
-                       'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-                       'compressor.finders.CompressorFinder',
-                       )
-
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
@@ -133,8 +128,7 @@ STATIC_ROOT = os.path.join(BASE_DIR / 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STORAGES = {
-    # ...
-    "staticfiles": {
+    "static": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }

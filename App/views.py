@@ -27,6 +27,8 @@ class DomainChecker(View):
             response = requests.request("GET", url, headers=headers, params=querystring)
             x = json.dumps(response.json())
             data = json.loads(x)
+            if response.status_code == 429:
+                return HttpResponse('This Service Under Construction')
             if not data['available']:
                 con = False
 
